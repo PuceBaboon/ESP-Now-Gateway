@@ -15,7 +15,7 @@ The basic idea behind using ESP-Now is that, because the protocol is so lightwei
 
 
 ## MAC addresses
-The basic W5500 modules come without a MAC address assigned, so you need to manually assign one yourself.  See the information on the "X-bit" at the bottom of page 6 and start of page 7 in this document for details on usable "locallly administered" MACs:- https://standards.ieee.org/develop/regauth/tut/eui.pdf
+The basic W5500 modules come without a MAC address assigned, so you need to manually assign one yourself.  See the information on the "X-bit" at the bottom of page 6 and start of page 7 in this document for details on usable "locally administered" MACs:- https://standards.ieee.org/develop/regauth/tut/eui.pdf
 The default MAC for the W5500 ethernet board in my code is 02:60:0D:F0:0D:01.  Feel free to change it.
  
 Anthony "TornTrousers" Elder has also suggested in his demo code that the WiFi MAC address used by the gateway should also be changed to use a locally administered number, as this would allow the gateway hardware to be swapped out at any time without disrupting the remote nodes (by flashing the gateway firmware onto a new ESP8266 module, it automaticalley gets the gateway MAC address).  This sounds like an excellent suggestion to me, so the default MAC for the ESP-Now WiFi gateway in my code is 02:60:0D:F0:0D:02.  Again, you don't have to use this suggestion or this particular address, so feel free to change it, but be aware that in this case every node **must** have the new address hard coded.
