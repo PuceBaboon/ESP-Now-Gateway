@@ -17,8 +17,8 @@ The basic idea behind using ESP-Now is that, because the protocol is so lightwei
 ## Troubleshooting
 
 ### Compile errors
-There are two compile time errors; one is justa warning, the other fatal (but trivial).
+There are two compile time errors; one is just a warning, the other fatal (but trivial).
 
-The warning is because the ESP8266 limits the MAX_SOCK_NUM (maximum number of concurrent sockets) to 4, while the W5500 can handle 8.  The simplest fix for this would be to limit the W5500 to 4 too, but I'd be interested in hearing any ideas on how to handle this a little more graciously (other than the obvious bulk-edit changing the constant to a different namein one or other of the libraries).
+The warning is because the ESP8266 limits the MAX_SOCK_NUM (maximum number of concurrent sockets) to 4, while the W5500 can handle 8.  The simplest fix for this would be to limit the W5500 to 4 too, but I'd be interested in hearing any ideas on how to handle this a little more graciously (other than the obvious bulk-edit changing the constant to a different name in one or other of the libraries).  In the meantime, feel free to ignore the warning (unless you have a high number of very verbose nodes).
 
 The fatal error is caused because the ESP8266 compile falls over when it tries to include the "avr/pgmspace.h" file (and fails, of course).  I've already put in a pull request for this change on the WizNet library, but in the meantime I've just left a fixed copy of the library in the project lib directory.
