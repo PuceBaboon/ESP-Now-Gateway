@@ -2,7 +2,7 @@
 ESP8266 with W5500 ethernet running as a gateway for ESP-Now nodes.  Node demo code included.
 
 # More information
-There's more information on this project available at [ESP8266-Hints]<https://esp8266hints.wordpress.com/2018/02/13/adding-an-ethernet-port-to-your-esp-revisited/>.
+There's more information on this project available at [ESP8266-Hints](https://esp8266hints.wordpress.com/2018/02/13/adding-an-ethernet-port-to-your-esp-revisited/).
 
 ## Components
 There are two parts to this repository, the gateway code (ESP-Now_Gateway) and the demo/exerciser code for a standalone sensor node (ESP-Now_Node).
