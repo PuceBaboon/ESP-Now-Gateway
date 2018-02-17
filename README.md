@@ -17,8 +17,8 @@ The node demo/exerciser is a copy of Hiroh Satoh's ESP8266-esp-now-sample code, 
 
 ### Hardware
 - An ESP8266 module with a connected ([details here](ttps://esp8266hints.wordpress.com/2018/02/13/adding-an-ethernet-port-to-your-esp-revisited/) W5500 ethernet board, for use as the gateway.
-- A working LAN to connect your wired ethernet board.  NOTE:- You do **not** need a functioning access-point (ESP-Now doesn't use the normal WiFi network).
-- A second ESP8266 for use as a node.
+- A working LAN to connect your wired ethernet board.
+- A second ESP8266 (no W5500 required for this one) for use as a node.  NOTE:- You do **not** need a functioning access-point (ESP-Now doesn't use the normal WiFi network).
 
 ### Libraries
 - The Wiznet Ethernet library is already included in the gateway "lib" directory (it has a minor fix included for the fatal compile time error mentioned below in the "Troubleshooting" section).
