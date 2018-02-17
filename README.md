@@ -24,6 +24,10 @@ The node demo/exerciser is a copy of Hiroh Satoh's ESP8266-esp-now-sample code, 
 - The Wiznet Ethernet library is already included in the gateway "lib" directory (it has a minor fix included for the fatal compile time error mentioned below in the "Troubleshooting" section).
 - You need to add the PubSubClient library to the gateway directory before building.
 
+### Software
+- You must have the latest and greatest version of PlatformIO installed (v3.5.1 or better), otherwise your compile may fail with various "espnow" error messages.
+
+
 ## ESP-Now
 The basic idea behind using ESP-Now is that, because the protocol is so lightweight, the battery-powered nodes only need to be powered on for a fraction of the time of a normal TCP/IP-connected unit, thus saving significant power. The ESP-Now protocol doesn't use IP addresses, so there's no need for DHCP or for assigning static addresses, no connecting to an access-point, no routing protocol and none of the other overheads (or error handling!) of TCP/IP.  The ESP-Now modules (gateway and nodes) use the MAC address as the unique ID when addressing each other, so connections are very fast and, providing your sensor node acquires the sensor data before attempting to connect to the gateway, the amount of time which the ESP8266 WiFi is active can be significantly less than a second.
 
@@ -45,3 +49,6 @@ There are two compile time errors; one is just a warning, the other fatal (but t
 The warning is because the ESP8266 limits the MAX_SOCK_NUM (maximum number of concurrent sockets) to 4, while the W5500 can handle 8.  The simplest fix for this would be to limit the W5500 to 4 too, but I'd be interested in hearing any ideas on how to handle this a little more graciously (other than the obvious bulk-edit changing the constant to a different name in one or other of the libraries).  In the meantime, feel free to ignore the warning (unless you have a high number of very verbose nodes).
 
 The fatal error is caused because the ESP8266 compile falls over when it tries to include "avr/pgmspace.h" from the src/Twitter.h file (and fails, of course).  I've already put in a pull request for this change on the WizNet library, but in the meantime I've just left a fixed copy of the library in the project lib directory.
+
+**NOTE FOR PLATFORMIO USERS -** You need to have the latest version of PlatformIO installed (v3.5.1 or greater), otherwise the project will fail to link in the espnow library correctly and you'll end up with a screen-full of error messages (all related to ESP-Now funtion calls).
+
