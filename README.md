@@ -14,14 +14,15 @@ The gateway code uses WizNet's own Arduino/ESP8266 library for the W5500, Nick O
 The node demo/exerciser is a copy of Hiroh Satoh's ESP8266-esp-now-sample code, with the cludgy addition of some random numbers to simulate a changing sensor readout between deep-sleeps.
 
 ## Requirements
+
 ### Hardware
-An ESP8266 module with a connected ([details here](ttps://esp8266hints.wordpress.com/2018/02/13/adding-an-ethernet-port-to-your-esp-revisited/) W5500 ethernet board, for use as the gateway.
-A working LAN to connect your wired ethernet board.
-A second ESP8266 for use as a node.
-NOTE:- You do **not** need a functioning access-point (ESP-Now doesn't use the normal WiFi network).
+- An ESP8266 module with a connected ([details here](ttps://esp8266hints.wordpress.com/2018/02/13/adding-an-ethernet-port-to-your-esp-revisited/) W5500 ethernet board, for use as the gateway.
+- A working LAN to connect your wired ethernet board.  NOTE:- You do **not** need a functioning access-point (ESP-Now doesn't use the normal WiFi network).
+- A second ESP8266 for use as a node.
+
 ### Libraries
-The Wiznet Ethernet library is already included in the gateway "lib" directory (it has a minor fix included for the fatal compile time error mentioned below in the "Troubleshooting" section).
-You need to add the PubSubClient library to the gateway directory before building.
+- The Wiznet Ethernet library is already included in the gateway "lib" directory (it has a minor fix included for the fatal compile time error mentioned below in the "Troubleshooting" section).
+- You need to add the PubSubClient library to the gateway directory before building.
 
 ## ESP-Now
 The basic idea behind using ESP-Now is that, because the protocol is so lightweight, the battery-powered nodes only need to be powered on for a fraction of the time of a normal TCP/IP-connected unit, thus saving significant power. The ESP-Now protocol doesn't use IP addresses, so there's no need for DHCP or for assigning static addresses, no connecting to an access-point, no routing protocol and none of the other overheads (or error handling!) of TCP/IP.  The ESP-Now modules (gateway and nodes) use the MAC address as the unique ID when addressing each other, so connections are very fast and, providing your sensor node acquires the sensor data before attempting to connect to the gateway, the amount of time which the ESP8266 WiFi is active can be significantly less than a second.
