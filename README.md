@@ -50,5 +50,5 @@ The warning is because the ESP8266 limits the MAX_SOCK_NUM (maximum number of co
 
 The fatal error is caused because the ESP8266 compile falls over when it tries to include "avr/pgmspace.h" from the src/Twitter.h file (and fails, of course).  I've already put in a pull request for this change on the WizNet library, but in the meantime I've just left a fixed copy of the library in the project lib directory.
 
-**NOTE FOR PLATFORMIO USERS -** You need to have the latest version of PlatformIO installed (v3.5.1 or greater), otherwise the project will fail to link in the espnow library correctly and you'll end up with a screen-full of error messages (all related to ESP-Now funtion calls).
+**NOTE FOR PLATFORMIO USERS -** You need to have the latest version of PlatformIO installed (v3.5.1 or greater), otherwise the project will fail to link in the espnow library correctly and you'll end up with a screen-full of error messages (all related to ESP-Now function calls).
 
