@@ -70,7 +70,7 @@ void setup() {
                              Serial.println(status);
                              });
 
-    int res = esp_now_add_peer(mac, (uint8_t) ESP_NOW_ROLE_SLAVE,
+    int res = esp_now_add_peer(wifi_mac, (uint8_t) ESP_NOW_ROLE_SLAVE,
                                (uint8_t) WIFI_DEFAULT_CHANNEL, NULL, 0);
 
 
@@ -81,7 +81,7 @@ void setup() {
 
     uint8_t bs[sizeof(sensorData)];
     memcpy(bs, &sensorData, sizeof(sensorData));
-    esp_now_send(mac, bs, sizeof(sensorData));
+    esp_now_send(wifi_mac, bs, sizeof(sensorData));
 
     ESP.deepSleep(20e6, WAKE_RF_DEFAULT);
 }
