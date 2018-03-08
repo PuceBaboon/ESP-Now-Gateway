@@ -32,8 +32,11 @@ Open up ESP-Now_GW/src/espnow_gw.ino and locate this block of comments and code 
      */
     Ethernet.begin(eth_MAC, eth_IP, eth_DNS, eth_GW, eth_MASK);
 ```
-Change the Ethernet.begin call to:-
+~~Change the Ethernet.begin call to:-
 ```
     Ethernet.begin(eth_MAC);
 ```
-...and recompile.  You're done!
+...and recompile.  You're done!~~
+
+   **...Okay, forget DHCP for the time being.**  It looks like the ESP8266 has timeout problems while it's waiting for the DHCP process to complete (thanks to user "1rabbit" for bringing that to my attention).  You'll need to assign the W5500 network configuration manually for the time being.
+   
