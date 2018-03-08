@@ -34,7 +34,7 @@ Open up ESP-Now_GW/src/espnow_gw.ino and locate this block of comments and code 
 ```
 ~~Change the Ethernet.begin call to:-~~
 
-    ~~Ethernet.begin(eth_MAC);~~
+~~Ethernet.begin(eth_MAC);~~
 
 ~~...and recompile.  You're done!~~
 
